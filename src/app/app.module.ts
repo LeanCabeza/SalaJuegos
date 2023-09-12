@@ -9,6 +9,7 @@ import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/notFound/notFound.component';
 import { AboutMeComponent } from './components/aboutMe/aboutMe.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     MainComponent,
     NotFoundComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

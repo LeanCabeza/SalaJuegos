@@ -1,0 +1,23 @@
+/* Fondo Responsive
+  -------------------------------------------------- */
+  
+  .masthead {
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    position: relative;
+    
+}
+
+.color-overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.2);
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .masthead {
+        min-height: 65vh;
+    }
+} 

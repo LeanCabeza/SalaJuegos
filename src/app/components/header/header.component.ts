@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  
+  logged: Boolean = false;
+  emailUsuario: string = "juan@juan.com"
   constructor() { }
 
   ngOnInit() {
