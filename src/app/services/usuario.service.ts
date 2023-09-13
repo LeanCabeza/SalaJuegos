@@ -8,7 +8,9 @@ import { Usuario } from '../interfaces/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
-
+  
+  private currentUserSubject: BehaviorSubject<any> = new BehaviorSubject<Usuario | null>(null);
+  currentUser$: Observable<Usuario | null> = this.currentUserSubject.asObservable();
   myDate = new Date();
   usuarioColleccion!: AngularFirestoreCollection<Usuario>;
   usuarioDoc!: AngularFirestoreDocument<Usuario>;  
@@ -58,6 +60,12 @@ export class UsuarioService {
       throw new Error("No existe un usuario con ese email");
     }
     return usuariosSnapshot.docs[0].data();
+  }
+
+
+
+  setCurrentUser(user:object|unknown) {
+    this.currentUserSubject.next(user);
   }
 
   

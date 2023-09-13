@@ -54,6 +54,7 @@ export class RegisterComponent implements OnInit {
           this.usuario.fechaIngreso = this.myDate.toLocaleDateString() + " " + this.myDate.toLocaleTimeString();
           this.usuario.fechaUltimoLogin = this.myDate.toLocaleDateString() + " " + this.myDate.toLocaleTimeString();
           this.usuariosServicio.agregarUsuario(this.usuario).then(res => {
+            this.usuariosServicio.setCurrentUser(this.usuario);
             Swal.fire('Registrado Correctamente', 'Bienvenido al sistema!', 'success');
             //this.usuariosServicio.setCurrentUser(this.usuario);
             this.usuario = { apellido: '', email: '', password: '', fechaIngreso: '', fechaUltimoLogin: '' }
