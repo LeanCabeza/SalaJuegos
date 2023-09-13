@@ -55,14 +55,7 @@ export class UsuarioService {
     const query = usuariosRef.where('email', '==', email).where('password', '==', password);
     const usuariosSnapshot = await query.get();
     if (usuariosSnapshot.empty) {
-      let emptyUser:Object= {
-        id : "",
-        nombre: "",
-        apellido: "",
-        email: "",
-        password: ""
-      }
-      return emptyUser;
+      throw new Error("No existe un usuario con ese email");
     }
     return usuariosSnapshot.docs[0].data();
   }

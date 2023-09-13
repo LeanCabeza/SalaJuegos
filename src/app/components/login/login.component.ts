@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
+  currentUser: any;
   mensajeLoggeo: string = '';
   email: string = "";
   pass: string = "";
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
       Swal.fire({ icon: 'error', title: 'Oops...', text: 'Falta completar los datos!' });
     }else{
         await this.usuariosServicio.login(this.email,this.pass).then(res => {
-        this.usuariosServicio.setCurrentUser(res);
+        console.log(res);
+        this.currentUser = res;
         this.email = "";
         this.pass = "";
         
