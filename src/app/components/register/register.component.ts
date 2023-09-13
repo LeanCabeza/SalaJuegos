@@ -54,13 +54,14 @@ export class RegisterComponent implements OnInit {
           this.usuario.fechaIngreso = this.myDate.toLocaleDateString() + " " + this.myDate.toLocaleTimeString();
           this.usuario.fechaUltimoLogin = this.myDate.toLocaleDateString() + " " + this.myDate.toLocaleTimeString();
           this.usuariosServicio.agregarUsuario(this.usuario).then(res => {
-            Swal.fire('Registrado Correctamente', 'Bienvenido al sistema!', 'success')
+            Swal.fire('Registrado Correctamente', 'Bienvenido al sistema!', 'success');
+            this.usuariosServicio.setCurrentUser(this.usuario);
             this.usuario = { apellido: '', email: '', password: '', fechaIngreso: '', fechaUltimoLogin: '' }
             setTimeout(() => {
               this.router.navigate(['/main']);
             }, 1900);
           }).catch(error => {
-            Swal.fire({ icon: 'error', title: 'Oops...', text: 'Algo salió mal en el logeo!' });
+            Swal.fire({ icon: 'error', title: 'Oops...', text: 'Algo salió mal en el registro!' });
           });
         }
       } else {

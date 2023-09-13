@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Usuario } from '../interfaces/usuario';
 
@@ -49,6 +49,24 @@ export class UsuarioService {
     const usuariosSnapshot = await query.get();
     return !usuariosSnapshot.empty;
   }
+
+  async login(email: string, password: string) {
+    const usuariosRef = this.db.collection('usuarios').ref;
+    const query = usuariosRef.where('email', '==', email).where('password', '==', password);
+    const usuariosSnapshot = await query.get();
+    if (usuariosSnapshot.empty) {
+      let emptyUser:Object= {
+        id : "",
+        nombre: "",
+        apellido: "",
+        email: "",
+        password: ""
+      }
+      return emptyUser;
+    }
+    return usuariosSnapshot.docs[0].data();
+  }
+
   
 
 }
