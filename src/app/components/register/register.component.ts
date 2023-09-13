@@ -56,7 +56,6 @@ export class RegisterComponent implements OnInit {
           this.usuariosServicio.agregarUsuario(this.usuario).then(res => {
             this.usuariosServicio.setCurrentUser(this.usuario);
             Swal.fire('Registrado Correctamente', 'Bienvenido al sistema!', 'success');
-            //this.usuariosServicio.setCurrentUser(this.usuario);
             this.usuario = { apellido: '', email: '', password: '', fechaIngreso: '', fechaUltimoLogin: '' }
             setTimeout(() => {
               this.router.navigate(['/main']);
