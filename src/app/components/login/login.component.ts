@@ -18,20 +18,7 @@ export class LoginComponent implements OnInit {
   }
   
   login(){
-    Swal.mixin({
-  toast: true,
-  position: 'top-right',
-  iconColor: 'light-green',
-  customClass: {
-    popup: 'colored-toast'
-  },
-  showConfirmButton: false,
-  timer: 1500,
-  timerProgressBar: true
-}).fire({
-  icon: 'success',
-  title: 'Success'
-})
+   
   }
 
 
